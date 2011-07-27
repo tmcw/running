@@ -1,0 +1,71 @@
+body {
+  color:#111;
+  background-color:#222;
+}
+
+header {
+  background-color:#4bb9bd;
+  opacity:0.8;
+  height:40px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:80;
+  width:325px;
+}
+
+header h1 {
+  margin:0 10px;
+  font: 20px/40px 'Rosario', sans-serif;
+}
+
+header a {
+  color:#b7dfb0;
+}
+
+#map {
+  position:absolute;
+  bottom:0;
+  right:0;
+  left:0;
+  top:0;
+  }
+
+.wax-tooltip {
+  position:absolute;
+  top:40px;
+  left:0;
+  width:315px;
+  opacity:0.8;
+  background-color:#bcc4a2;
+  font: 20px/40px 'Rosario', sans-serif;
+  padding:0 10px 0 0;
+  }
+
+.bpm-bar {
+  background-color:#4bb9bd;
+  padding-left:10px;
+}
+
+.bpm-bar span.label {
+  font-size:14px;
+}
+
+.map-tile {
+  opacity:0;
+}
+
+.map-tile-loaded {
+  -webkit-animation-name: 'fade-in';
+  -webkit-animation-timing-function: ease-in;
+  -webkit-animation-duration: .1s;
+}
+
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
