@@ -1,26 +1,37 @@
 body {
   color:#111;
+  font-size:14px;
   background-color:#222;
 }
 
-header {
+header, footer {
   background-color:#4bb9bd;
   opacity:0.8;
-  height:40px;
   position:absolute;
+  z-index:80;
+  }
+
+header {
+  height:40px;
   top:0;
   left:0;
-  z-index:80;
   width:325px;
 }
+
+footer {
+  padding:10px;
+  bottom:0;
+  right:0;
+}
+
 
 header h1 {
   margin:0 10px;
   font: 20px/40px 'Rosario', sans-serif;
 }
 
-header a {
-  color:#b7dfb0;
+header a, footer a {
+  color:#474579;
 }
 
 #map {
