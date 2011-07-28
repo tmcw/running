@@ -46,15 +46,22 @@ header a, footer a {
   position:absolute;
   top:40px;
   left:0;
-  width:315px;
+  width:415px;
   opacity:0.8;
   background-color:#bcc4a2;
   font: 20px/40px 'Rosario', sans-serif;
   padding:0 10px 0 0;
+  -moz-transition:top 0.5s;
+  -webkit-transition:top 0.5s;
   }
+
+div.wax-fade {
+  top:100px;
+}
 
 .bpm-bar {
   background-color:#4bb9bd;
+  border-right:1px solid #258F92;
   padding-left:10px;
 }
 
@@ -80,3 +87,5 @@ header a, footer a {
     opacity: 1;
   }
 }
+
+

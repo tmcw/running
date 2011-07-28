@@ -1,4 +1,4 @@
-/* wax - 3.0.3 - 1.0.4-340-gd75272a */
+/* wax - 3.0.3 - 1.0.4-345-g3defd6a */
 
 
 /*!
@@ -521,7 +521,7 @@ wax.request = {
         }
     }
 };
-wax = wax || {};
+if (!wax) var wax = {};
 
 // A wrapper for reqwest jsonp to easily load TileJSON from a URL.
 wax.tilejson = function(url, callback) {
@@ -1061,7 +1061,7 @@ wax.mm = wax.mm || {};
 wax.mm.locationHash = {
   stateChange: function(callback) {
     com.modestmaps.addEvent(window, 'hashchange', function() {
-      callback(location.hash);
+      callback(location.hash.substring(1));
     }, false);
   },
   getState: function() {
@@ -1166,7 +1166,7 @@ wax.mm.hash = function(map, tilejson, options) {
         if (state === s0) return;
         if (parser(s0 = state)) {
             // replace bogus hash
-            hash.move();
+            move();
         }
     }
 
@@ -1177,7 +1177,7 @@ wax.mm.hash = function(map, tilejson, options) {
 
     hash.add = function(map) {
         if (options.manager.getState()) {
-            hash.stateChange(options.manager.getState());
+            stateChange(options.manager.getState());
         } else {
             initialize();
             move();
@@ -1214,7 +1214,7 @@ wax.mm.interaction = function(map, tilejson, options) {
 
     var MM = com.modestmaps,
         waxGM = wax.GridManager(tilejson),
-        callbacks = options.callbacks || new wax.tooltip(),
+        callbacks = options.callbacks || new wax.tooltip(options),
         clickAction = options.clickAction || ['full'],
         clickHandler = options.clickHandler || function(url) {
             window.location = url;
@@ -1424,6 +1424,9 @@ wax.mm.interaction = function(map, tilejson, options) {
         MM.removeEvent(map.parent, 'mousedown', onDown);
         if (touchable) {
             MM.removeEvent(map.parent, 'touchstart', onDown);
+        }
+        if (callbacks._currentTooltip) {
+            callbacks.hideTooltip(callbacks._currentTooltip);
         }
         return this;
     };

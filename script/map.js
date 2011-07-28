@@ -20,10 +20,15 @@ $.domReady(function() {
         formatter: function(options, data) {
             if (options.format === 'teaser') {
                 if (data.bpm >= 10) {
-                    return '<div class="bpm-bar" style="width:' + (data.bpm * 1.5) + 'px;">' + data.bpm + ' <span class="label">bpm</span></div>';
+                    return '<div class="bpm-bar" style="width:' +
+                        (data.bpm * 1.8) + 'px;">' +
+                        data.bpm +
+                        ' <span class="label">bpm</span></div>';
                 }
             }
         }
+    }, {
+        animationOut: 'wax-fade'
     });
 
     map.setCenterZoom(new mm.Location(38.92, -77.03), 14);
