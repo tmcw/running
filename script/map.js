@@ -2,12 +2,20 @@ $.domReady(function() {
     var mm = com.modestmaps;
 
     var map = new mm.Map('map', new wax.mm.connector({
-        tiles: ['http://localhost:8889/1.0.0/running_map/{z}/{x}/{y}.png?1311763836000'],
+        tiles: [
+            'http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.png',
+            'http://b.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.png',
+            'http://c.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.png',
+            'http://d.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.png'],
         scheme: 'tms'
     }));
 
     wax.mm.interaction(map, {
-        grids: ['http://localhost:8889/1.0.0/running_map/{z}/{x}/{y}.grid.json?1311763836000'],
+        tiles: [
+            'http://a.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.grid.json',
+            'http://b.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.grid.json',
+            'http://c.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.grid.json',
+            'http://d.tiles.mapbox.com/tmcw/1.0.0/tmcw.rrrr2/{z}/{x}/{y}.grid.json'],
         scheme: 'tms',
         formatter: function(options, data) {
             if (options.format === 'teaser') {
